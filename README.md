@@ -13,6 +13,17 @@
   <img src="https://img.shields.io/badge/Status-Active-brightgreen" />
 </p>
 
+<p align="center">
+  🌐 <b>Live Demo:</b><br>
+  <a href="https://phishradar.streamlit.app/">https://phishradar.streamlit.app/</a>
+</p>
+
+<p align="center">
+  <a href="https://phishradar.streamlit.app/">
+    <img src="https://img.shields.io/badge/Live-App-brightgreen?style=for-the-badge&logo=streamlit">
+  </a>
+</p>
+
 <hr>
 
 ## 📌 Overview
@@ -154,7 +165,8 @@ streamlit run app.py
 
 ## 📸 Demo
 
-*(Add your screenshots here)*
+🌐 Live App:  
+https://phishradar.streamlit.app/
 
 ---
 
