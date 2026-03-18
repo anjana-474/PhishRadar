@@ -25,13 +25,18 @@ import joblib
 # -----------------------------
 def download_file(url, output_path):
     if not os.path.exists(output_path):
-        gdown.download(url, output_path, quiet=False)
+        gdown.download(url, output_path, quiet=False, fuzzy=True)
 
 # -----------------------------
 # Extract zip safely
 # -----------------------------
 def extract_zip(zip_path, extract_to):
     if not os.path.exists("models/text_phishing_model"):
+
+        # Check if file is valid zip
+        if not zipfile.is_zipfile(zip_path):
+            raise Exception("Downloaded file is NOT a valid zip. Check Google Drive link.")
+
         with zipfile.ZipFile(zip_path, 'r') as zip_ref:
             zip_ref.extractall(extract_to)
 
@@ -41,8 +46,8 @@ def extract_zip(zip_path, extract_to):
 @st.cache_resource
 def load_models():
 
-    url_model_link = "https://drive.google.com/uc?id=1LQvuRC-i4OhmtssiERhUrnZaml3U2kBP"
-    text_model_link = "https://drive.google.com/uc?id=1Cg6SfCPndw3M1DUY7x8KiWSDA379XJpS"
+    url_model_link = "https://drive.google.com/file/d/1LQvuRC-i4OhmtssiERhUrnZaml3U2kBP/view"
+    text_model_link = "https://drive.google.com/file/d/1Cg6SfCPndw3M1DUY7x8KiWSDA379XJpS/view"
 
     # Download models
     download_file(url_model_link, "url_model.pkl")
