@@ -1,0 +1,25 @@
+__pycache__/
+*.pyc
+
+venv/
+env/
+.venv/
+
+.ipynb_checkpoints/
+
+.DS_Store
+Thumbs.db
+*.log
+
+.vscode/
+.streamlit/
+
+~$*.pptx
+
+# Ignore models (handled via Google Drive)
+models/
+*.zip
+
+# Keep only required dataset
+dataset/*
+!dataset/top-1m.csv

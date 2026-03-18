@@ -1,0 +1,17 @@
+pandas
+numpy
+scikit-learn
+matplotlib
+seaborn
+joblib
+
+torch
+transformers
+accelerate
+
+streamlit
+beautifulsoup4
+requests
+plotly
+
+rapidfuzz
