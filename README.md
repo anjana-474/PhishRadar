@@ -1,7 +1,7 @@
 <h1 align="center">🛡️ PhishRadar</h1>
 
 <p align="center">
- # Real-Time Phishing URL & Text Detection using ML + DistilBERT
+ Real-Time Phishing URL & Text Detection using ML + DistilBERT
 </p>
 
 <p align="center">
@@ -11,11 +11,6 @@
   <img src="https://img.shields.io/badge/NLP-DistilBERT-orange" />
   <img src="https://img.shields.io/badge/PyTorch-DeepLearning-red" />
   <img src="https://img.shields.io/badge/Status-Active-brightgreen" />
-</p>
-
-<p align="center">
-  🌐 <b>Live Demo:</b><br>
-  <a href="https://phishradar.streamlit.app/">https://phishradar.streamlit.app/</a>
 </p>
 
 <p align="center">
