@@ -15,21 +15,17 @@ from transformers import DistilBertTokenizer, DistilBertForSequenceClassificatio
 from rapidfuzz import fuzz, distance
 
 import os
-import requests
 import zipfile
-import os
+import gdown
+import joblib
 
 
 # -----------------------------
-# Download file (streaming for large files)
+# Download using gdown (BEST for Google Drive)
 # -----------------------------
 def download_file(url, output_path):
     if not os.path.exists(output_path):
-        with requests.get(url, stream=True) as r:
-            r.raise_for_status()
-            with open(output_path, "wb") as f:
-                for chunk in r.iter_content(chunk_size=8192):
-                    f.write(chunk)
+        gdown.download(url, output_path, quiet=False)
 
 # -----------------------------
 # Extract zip safely
@@ -44,17 +40,18 @@ def extract_zip(zip_path, extract_to):
 # -----------------------------
 @st.cache_resource
 def load_models():
+
     url_model_link = "https://drive.google.com/uc?id=1LQvuRC-i4OhmtssiERhUrnZaml3U2kBP"
     text_model_link = "https://drive.google.com/uc?id=1Cg6SfCPndw3M1DUY7x8KiWSDA379XJpS"
 
-    # Download
+    # Download models
     download_file(url_model_link, "url_model.pkl")
     download_file(text_model_link, "text_model.zip")
 
-    # Extract
+    # Extract zip
     extract_zip("text_model.zip", "models")
 
-    # Load
+    # Load models
     url_model = joblib.load("url_model.pkl")
 
     tokenizer = DistilBertTokenizer.from_pretrained("models/text_phishing_model")
